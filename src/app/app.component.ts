@@ -9,15 +9,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class AppComponent implements OnInit {
   myform: FormGroup = null;
 
-  public defaultImageURL =
-    'https://i2.wp.com/theinfogrid.com/wp-content/uploads/2018/08/Angular-Material-Autocomplete-with-HTTP-Lookup.png';
-
   constructor(private fb: FormBuilder) {}
 
   createForm(): FormGroup {
     return this.fb.group({
-      BlobImage: [null, Validators.compose([Validators.required])],
-      base64Image: [null, Validators.compose([Validators.required])]
+      BlobImage: [null, Validators.compose([Validators.required])]
     });
   }
 

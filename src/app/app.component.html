@@ -2,11 +2,9 @@
   <div fxFlex="500px" fxLayoutAlign="center center" fxLayout="column" fxFlexOffset="calc(50% - 250px)" fxFlex.xs="100" fxFlexOffset.xs="0"
     style="padding: 10px;">
     <app-custom-image-form-control formControlName="BlobImage" [responseType]="'blob'"></app-custom-image-form-control>
-    <mat-error *ngIf="myform.controls['BlobImage'].hasError('required')"> This field is required </mat-error>
-    <app-custom-image-form-control formControlName="base64Image"></app-custom-image-form-control>
-    <mat-error *ngIf="myform.controls['base64Image'].hasError('required')"> This field is required </mat-error>
+    <mat-error *ngIf="myform.controls['BlobImage'].hasError('required')"> Ce champ est requis </mat-error>
     <button fxFlex mat-button color="primary">
       <mat-icon>save</mat-icon>
-      Submit</button>
+      Enregistrer</button>
   </div>
 </form>

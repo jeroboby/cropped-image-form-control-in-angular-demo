@@ -24,35 +24,35 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ]
 })
 
-/* Implement the OnInit, OnChanges and ControlValueAccessor interfaces */
+/* Implementation des interfaces */
 export class CustomImageFormControlComponent
   implements OnInit, OnChanges, ControlValueAccessor {
-  /* Pass the height of the image to this component */
+  /*On passe la hauteur de l'image */
   @Input()
   public imgCropToHeight = '400';
 
-  /* Pass the width of the image to this component */
+  /* On passe la largueur de l'image */
   @Input()
   public imgCropToWidth = '400';
 
-  /* Return type of our image */
+  /* Retourne le type d'image */
   @Input()
-  private responseType: 'blob' | 'base64' = 'base64';
+  private responseType: 'blob';
 
-  /* Our cropped image and the value of our image controller */
+  /* L'image rognée */
   public croppieImage;
 
-  /* Options for the cropped image type and size */
+  /* Option pour l'image rognée */
   public outputoption = { type: 'blob', size: 'original' };
 
-  /* Element to paint our form control */
+  /* Element du form control */
   @ViewChild('ngxCroppie')
   ngxCroppie: NgxCroppieComponent;
 
   constructor() {}
 
   ngOnInit() {
-    /* Size the outputoptions of our cropped imaged - whether is base64 or blob */
+    /* la taille défini pour l'image rognée */
     this.outputoption = { type: this.responseType, size: 'original' };
   }
 
@@ -70,9 +70,8 @@ export class CustomImageFormControlComponent
     }
   }
 
-  /**
-   * Options for croppie, you can learn more about this here -> https://foliotek.github.io/Croppie/
-   */
+  
+   /* Les options selectionées */
 
   public get croppieOptions(): CroppieOptions {
     const opts: CroppieOptions = {};
@@ -90,7 +89,7 @@ export class CustomImageFormControlComponent
   }
 
   /**
-   * Event to be activated when you select an image
+   * Les evenements activés à la selection de l'image
    */
   imageUploadEvent(evt: any) {
     if (!evt.target) {
@@ -126,7 +125,7 @@ export class CustomImageFormControlComponent
     this.propagateChange(this.croppieImage);
   }
 
-  /* Takes the value  */
+  
   writeValue(value: any) {
     if (value !== undefined) {
       this.croppieImage = value;
